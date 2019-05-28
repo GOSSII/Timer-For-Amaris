@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 center margin">
+    <h1> Welcome to {{ title }}! </h1>
+    <div class="timer">
+      {{ time| date:'HH:mm:ss' }}
+    </div>
+    <div class="controller">
+      <button type="button" class="btn btn-success" (click)="startTimer()"
+        *ngIf="currentStatus=='stop'">Start</button>
+      <button type="button" class="btn btn-warning" (click)="pauseTimer()"
+        *ngIf="currentStatus=='start'||currentStatus=='restart'">Pause</button>
+      <button type="button" class="btn btn-success" (click)="restartTimer()"
+        *ngIf="currentStatus=='pause'">Restart</button>
+      <button type="button" class="btn btn-danger" (click)="stopTimer()"
+        *ngIf="currentStatus=='start'||currentStatus=='pause'||currentStatus=='restart'">Stop</button>
+    </div>
+  </div>
+</div>
